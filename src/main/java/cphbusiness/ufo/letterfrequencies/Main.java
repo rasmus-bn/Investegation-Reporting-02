@@ -17,7 +17,7 @@ import static java.util.stream.Collectors.toMap;
 public class Main {
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        String fileName = "src/main/resources/FoundationSeries.txt";
+        String fileName = "/home/dunkl/Documents/School/UFO/Assignment2/letterfrequencies-master/src/main/resources/FoundationSeries.txt";
         int timesToRun = 100;
         int[] timesInMillis = new int[timesToRun];
 
