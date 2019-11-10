@@ -12,8 +12,17 @@ I think the algorithm has to things that slows it down:
 1. It uses FileReader which is not buffered so reads directly from file every time read() is called. 
 2. The read() method returns an int which is the stores as a long which is quite unnecessary.
 
+## My solution
+I tried 2 different approaches.
 
+### 1st approach
+Wrapped the FileReader in a BufferedReader and changed the HashMap from *<Integer, Long>* to *<Integer, Integer>*.
 
+### 2nd approach
+I wondered if there was a solution using a lambda expression and there was. I used *Files.lines(Paths.get(fileName)).forEach()* and passed in the tallyChars3 method.
 
+### Measurements
+Desktop (with an SSD)
 
+Laptop (with HDD)
 
