@@ -1,6 +1,8 @@
 package cphbusiness.ufo.letterfrequencies;
 
 import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.charset.CharsetDecoder;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -17,7 +19,7 @@ import static java.util.stream.Collectors.toMap;
 public class Main {
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        String fileName = "/home/dunkl/Documents/School/UFO/02/Investegation-Reporting-02/src/main/resources/FoundationSeries.txt";
+        String fileName = "/home/dunkl/Documents/School/UFO/Assignment2/letterfrequencies-master/src/main/resources/FoundationSeries.txt";
         int timesToRun = 100;
         int[] timesInMillis = new int[timesToRun];
 
@@ -36,7 +38,7 @@ public class Main {
 
         for(int i = 0; i < timesToRun; i++) {
             long startTime = System.nanoTime();
-            Reader reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName)));
+            Reader reader = new BufferedReader(new FileReader(fileName));
             Map<Integer, Integer> freq = new HashMap<>();
             tallyChars2(reader, freq);
             long duration = System.nanoTime() - startTime;
@@ -49,25 +51,22 @@ public class Main {
         for(int i = 0; i < timesToRun; i++) {
             long startTime = System.nanoTime();
             Map<Integer, Integer> freq = new HashMap<>();
-            Files.lines(Paths.get(fileName), StandardCharsets.US_ASCII).forEach(line -> tallyChars3(line, freq));
+            Files.lines(Paths.get(fileName)).forEach(line -> tallyChars3(line, freq));
             long duration = System.nanoTime() - startTime;
-//            print_tally2(freq3);
+//            print_tally2(freq);
             timesInMillis[i] = (int) duration / 1_000_000;
         }
         printIntArr(timesInMillis);
-
-
-
+        System.out.println("");
     }
 
-    private static void tallyChars3(String line, Map<Integer, Integer> freq) {
-        int length = line.length();
-        for (int i = 0; i < length; i++) {
-            int b = line.charAt(i);
+    private static void tallyChars(Reader reader, Map<Integer, Long> freq) throws IOException {
+        int b;
+        while ((b = reader.read()) != -1) {
             try {
-                freq.put(b, (freq.get(b) + 1));
+                freq.put(b, freq.get(b) + 1);
             } catch (NullPointerException np) {
-                freq.put(b, 1);
+                freq.put(b, 1L);
             };
         }
     }
@@ -83,13 +82,14 @@ public class Main {
         }
     }
 
-    private static void tallyChars(Reader reader, Map<Integer, Long> freq) throws IOException {
-        int b;
-        while ((b = reader.read()) != -1) {
+    private static void tallyChars3(String line, Map<Integer, Integer> freq) {
+        int length = line.length();
+        for (int i = 0; i < length; i++) {
+            int b = line.charAt(i);
             try {
-                freq.put(b, freq.get(b) + 1);
+                freq.put(b, (freq.get(b) + 1));
             } catch (NullPointerException np) {
-                freq.put(b, 1L);
+                freq.put(b, 1);
             };
         }
     }

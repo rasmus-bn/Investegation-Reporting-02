@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7b3da890-fc94-4808-868f-ad9b6640054a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cphbusiness/ufo/letterfrequencies/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cphbusiness/ufo/letterfrequencies/Main.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,6 +20,9 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RunDashboard">
@@ -65,6 +70,7 @@
       <workItem from="1573142380863" duration="9481000" />
       <workItem from="1573222413862" duration="2017000" />
       <workItem from="1573242901630" duration="1758000" />
+      <workItem from="1573378491222" duration="3095000" />
     </task>
     <servers />
   </component>
@@ -76,7 +82,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
